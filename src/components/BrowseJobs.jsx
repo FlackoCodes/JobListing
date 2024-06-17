@@ -11,7 +11,9 @@ const BrowseJobs = ({ isHome = false }) => {
   useEffect(()=>{
     const fethcJobs = async () =>{
 
-      const apiURL = isHome ? 'http://localhost:5000/jobs?_limit=3' : 'http://localhost:5000/jobs'
+      const apiURL = isHome ? 
+      '/api/jobs?_limit=3'
+       : '/api/jobs'
 
       try {
         const res = await fetch(apiURL);
@@ -24,6 +26,7 @@ const BrowseJobs = ({ isHome = false }) => {
       }
     }
     fethcJobs()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
