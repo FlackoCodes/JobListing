@@ -1,14 +1,24 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect,  } from "react"
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 
-
-const JobPage = () => {
+const JobPage = ({ deleteJob }) => {
 
   const { id } = useParams()
+  const navigate = useNavigate()
   const [ job, setJob ] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  const onDeleteClick = (jobId)=>{
+    const confirm = window.confirm('Sure to delete');
+    if (!confirm) {
+      return
+    } else {
+      deleteJob(jobId)
+      return  navigate('/jobs/')
+    }
+  }
 
   useEffect(()=>{
     const fetchJob = async () =>{
@@ -102,10 +112,11 @@ const JobPage = () => {
             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
               <h3 className="text-xl font-bold mb-6">Manage Job</h3>
               <Link
-                to={`/jobs/edit/${job.id} `}
+                to={`/jobs/edit/${job.id}`}
                 className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job</Link>
               <button
+              onClick={()=>onDeleteClick(job.id)}
                 className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
                 Delete Job
               </button>
