@@ -2,6 +2,7 @@
 import jobs from '../jobs.json'
 import JobList from './JobList'
 
+// eslint-disable-next-line no-unused-vars
 const BrowseJobs = ({job}) => {
 
   const recentJobs = jobs.slice(0, 3)
