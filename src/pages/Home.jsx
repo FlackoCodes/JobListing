@@ -8,7 +8,7 @@ function Home() {
     <>
     <Hero/>
     <DevsEmployers />
-    <BrowseJobs />
+    <BrowseJobs isHome={true} />
     <AllJobs />
     </>
   )
