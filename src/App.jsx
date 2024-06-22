@@ -48,12 +48,14 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout/>} >
-        <Route path='/' element={<Home />}/> {/* default route for path ='/' */}
+        <Route path='/' element={<Home />}/> {/* default route for path ='/',
+         prevents the redundant use of path = '/' again when element = home.
+         */}
         <Route path='/jobs' element={<JobsPages/>}/>
         <Route path='/add-job' element={<AddJob addJobSubmit={addJob}/>}/>
         <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob}/>}/>
         <Route path='/edit-jobs/:id' element={<EditPage updateJobSubmit={updateJob}/>}/>
-        <Route path='*' element={<NotFound/>}/>
+        <Route path='*' element={<NotFound/>}/> {/* wildcard for catching all unknown routes */}
       </Route>
     )
   );
