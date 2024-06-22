@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect,  } from "react"
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa"
 import { useNavigate, useParams } from "react-router-dom"
