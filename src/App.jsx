@@ -48,7 +48,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout/>} >
-        <Route path='/' element={<Home />}/> {/* default route for path ='/',
+        <Route index element={<Home />}/> {/* default route for path ='/',
          prevents the redundant use of path = '/' again when element = home.
          */}
         <Route path='/jobs' element={<JobsPages/>}/>
