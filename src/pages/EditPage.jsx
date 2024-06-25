@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const EditPage = ({ updateJobSubmit, isHome = false }) => {
   const { id } = useParams();
@@ -65,8 +64,6 @@ const EditPage = ({ updateJobSubmit, isHome = false }) => {
     };
 
     updateJobSubmit(updatedJob);
-
-    toast.success('Job Updated Successfully');
 
     navigate(`/`);
   };
